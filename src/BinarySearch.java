@@ -1,11 +1,4 @@
-/**
- * Demonstrates iterative binary search.
- *
- * <p>The input array must be sorted in ascending order. Each step discards
- * half of the remaining range. Time complexity is O(1) best case and O(log n)
- * average and worst case. Space complexity is O(1). An empty array returns
- * -1.</p>
- */
+
 public class BinarySearch {
 
     /**
