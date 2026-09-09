@@ -1,11 +1,4 @@
-/**
- * Demonstrates exponential search, which finds a useful range by repeatedly
- * doubling its boundary and then uses binary search in that range.
- *
- * <p>The input array must be sorted in ascending order. Time complexity is
- * O(1) best case and O(log n) average and worst case. Space complexity is
- * O(1). An empty array returns -1.</p>
- */
+
 public class ExponentialSearch {
 
     /**
