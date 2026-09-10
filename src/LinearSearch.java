@@ -1,10 +1,4 @@
-/**
- * Demonstrates linear search, which checks each array element from left to right.
- *
- * <p>The input array does not need to be sorted. An empty array returns -1.
- * Time complexity is O(1) best case, O(n) average and worst case. Space
- * complexity is O(1).</p>
- */
+
 public class LinearSearch {
 
     /**
