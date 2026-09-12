@@ -1,6 +1,6 @@
 # Java Searching Algorithms
 
-This repository teaches seven classic searching algorithms through small,
+This repository teaches nine classic searching algorithms through small,
 readable Java implementations. Every algorithm returns the index of a matching
 target or `-1` when the target is absent. No built-in search methods are used.
 
@@ -13,6 +13,8 @@ target or `-1` when the target is absent. No built-in search methods are used.
 - Interpolation Search
 - Exponential Search
 - Ternary Search
+- Breadth-First Search (BFS)
+- Depth-First Search (DFS)
 
 ## How the Algorithms Work
 
@@ -23,6 +25,8 @@ target or `-1` when the target is absent. No built-in search methods are used.
 - **Interpolation Search** estimates a target's position using the values at the ends of a sorted range. It is strongest for evenly distributed values.
 - **Exponential Search** doubles a boundary until it passes the target, then performs binary search in the discovered range.
 - **Ternary Search** compares two middle points and removes two-thirds of a sorted range at each step.
+- **Breadth-First Search (BFS)** explores an adjacency-list graph level by level using a queue.
+- **Depth-First Search (DFS)** explores one graph branch as deeply as possible before backtracking using a stack.
 
 ## Complexity Comparison
 
@@ -35,6 +39,8 @@ target or `-1` when the target is absent. No built-in search methods are used.
 | Interpolation Search | O(1) | O(log log n)* | O(n) | O(1) | Yes |
 | Exponential Search | O(1) | O(log n) | O(log n) | O(1) | Yes |
 | Ternary Search | O(1) | O(log n) | O(log n) | O(1) | Yes |
+| BFS | O(1) | O(V + E) | O(V + E) | O(V) | No |
+| DFS | O(1) | O(V + E) | O(V + E) | O(V) | No |
 
 `*` Interpolation search's average bound assumes a fairly uniform data distribution.
 
@@ -84,6 +90,13 @@ System.out.println(index); // 3
 
 Sorted-array algorithms require ascending input. None of the algorithms changes
 the original array, and all safely handle empty and single-element arrays.
+For BFS and DFS, represent a graph as an adjacency-list `int[][]`, where row
+`n` contains the neighbors of vertex `n`:
+
+```java
+int[][] graph = {{1, 2}, {3}, {}, {}};
+int vertex = BFS.search(graph, 0, 3); // 3
+```
 
 ## Learning Objectives
 
