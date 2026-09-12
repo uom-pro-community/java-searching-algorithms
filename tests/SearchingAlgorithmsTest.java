@@ -23,6 +23,13 @@ class SearchingAlgorithmsTest {
         );
     }
 
+    private static Stream<Arguments> graphSearchAlgorithms() {
+        return Stream.of(
+            Arguments.of("BFS", (BiFunction<int[][], Integer, Integer>) graph -> BFS.search(graph, 0, 5)),
+            Arguments.of("DFS", (BiFunction<int[][], Integer, Integer>) graph -> DFS.search(graph, 0, 5))
+        );
+    }
+
     @ParameterizedTest(name = "{0} finds targets at boundaries and middle")
     @MethodSource("searchAlgorithms")
     void findsTargetsAtBeginningMiddleAndEnd(String name, BiFunction<int[], Integer, Integer> search) {
@@ -61,5 +68,37 @@ class SearchingAlgorithmsTest {
         int[] original = input.clone();
         search.apply(input, 7);
         assertEquals(java.util.Arrays.toString(original), java.util.Arrays.toString(input), name);
+    }
+
+    @ParameterizedTest(name = "{0} finds a reachable vertex")
+    @MethodSource("graphSearchAlgorithms")
+    void graphSearchFindsReachableVertex(String name, BiFunction<int[][], Integer, Integer> search) {
+        int[][] graph = {
+            {1, 2},
+            {3},
+            {4},
+            {},
+            {5},
+            {}
+        };
+        assertEquals(5, search.apply(graph, 0), name);
+    }
+
+    @ParameterizedTest(name = "{0} handles cycles and unreachable vertices")
+    @MethodSource("graphSearchAlgorithms")
+    void graphSearchHandlesCyclesAndUnreachableVertices(String name, BiFunction<int[][], Integer, Integer> search) {
+        int[][] graph = {
+            {1},
+            {2},
+            {0},
+            {}
+        };
+        assertEquals(-1, search.apply(graph, 0), name);
+    }
+
+    @ParameterizedTest(name = "{0} handles invalid start vertices")
+    @MethodSource("graphSearchAlgorithms")
+    void graphSearchHandlesInvalidStartVertices(String name, BiFunction<int[][], Integer, Integer> search) {
+        assertEquals(-1, search.apply(new int[][] {{1}, {}}, 2), name);
     }
 }
