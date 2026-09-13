@@ -1,6 +1,6 @@
 # Java Searching Algorithms
 
-This repository teaches nine classic searching algorithms through small,
+This repository teaches twelve classic searching algorithms through small,
 readable Java implementations. Every algorithm returns the index of a matching
 target or `-1` when the target is absent. No built-in search methods are used.
 
@@ -13,6 +13,9 @@ target or `-1` when the target is absent. No built-in search methods are used.
 - Interpolation Search
 - Exponential Search
 - Ternary Search
+- Fibonacci Search
+- Sentinel Search
+- Hash Search
 - Breadth-First Search (BFS)
 - Depth-First Search (DFS)
 
@@ -25,6 +28,9 @@ target or `-1` when the target is absent. No built-in search methods are used.
 - **Interpolation Search** estimates a target's position using the values at the ends of a sorted range. It is strongest for evenly distributed values.
 - **Exponential Search** doubles a boundary until it passes the target, then performs binary search in the discovered range.
 - **Ternary Search** compares two middle points and removes two-thirds of a sorted range at each step.
+- **Fibonacci Search** uses Fibonacci numbers to narrow a sorted search range efficiently.
+- **Sentinel Search** places a temporary target value at the end to simplify the loop.
+- **Hash Search** stores values in a map for near-constant lookup time.
 - **Breadth-First Search (BFS)** explores an adjacency-list graph level by level using a queue.
 - **Depth-First Search (DFS)** explores one graph branch as deeply as possible before backtracking using a stack.
 
@@ -39,6 +45,9 @@ target or `-1` when the target is absent. No built-in search methods are used.
 | Interpolation Search | O(1) | O(log log n)* | O(n) | O(1) | Yes |
 | Exponential Search | O(1) | O(log n) | O(log n) | O(1) | Yes |
 | Ternary Search | O(1) | O(log n) | O(log n) | O(1) | Yes |
+| Fibonacci Search | O(1) | O(log n) | O(log n) | O(1) | Yes |
+| Sentinel Search | O(1) | O(n) | O(n) | O(1) | No |
+| Hash Search | O(1) | O(1) | O(n) | O(n) | No |
 | BFS | O(1) | O(V + E) | O(V + E) | O(V) | No |
 | DFS | O(1) | O(V + E) | O(V + E) | O(V) | No |
 
