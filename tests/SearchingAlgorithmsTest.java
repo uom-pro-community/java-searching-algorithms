@@ -19,14 +19,17 @@ class SearchingAlgorithmsTest {
             Arguments.of("Jump Search", (BiFunction<int[], Integer, Integer>) JumpSearch::search),
             Arguments.of("Interpolation Search", (BiFunction<int[], Integer, Integer>) InterpolationSearch::search),
             Arguments.of("Exponential Search", (BiFunction<int[], Integer, Integer>) ExponentialSearch::search),
-            Arguments.of("Ternary Search", (BiFunction<int[], Integer, Integer>) TernarySearch::search)
+            Arguments.of("Ternary Search", (BiFunction<int[], Integer, Integer>) TernarySearch::search),
+            Arguments.of("Fibonacci Search", (BiFunction<int[], Integer, Integer>) FibonacciSearch::search),
+            Arguments.of("Sentinel Search", (BiFunction<int[], Integer, Integer>) SentinelSearch::search),
+            Arguments.of("Hash Search", (BiFunction<int[], Integer, Integer>) HashSearch::search)
         );
     }
 
     private static Stream<Arguments> graphSearchAlgorithms() {
         return Stream.of(
-            Arguments.of("BFS", (BiFunction<int[][], Integer, Integer>) graph -> BFS.search(graph, 0, 5)),
-            Arguments.of("DFS", (BiFunction<int[][], Integer, Integer>) graph -> DFS.search(graph, 0, 5))
+            Arguments.of("BFS", (BiFunction<int[][], Integer, Integer>) (graph, start) -> BFS.search(graph, start, 5)),
+            Arguments.of("DFS", (BiFunction<int[][], Integer, Integer>) (graph, start) -> DFS.search(graph, start, 5))
         );
     }
 
